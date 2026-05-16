@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MW label</title>
+    <style>
+        /* Reset i Podstawowe Style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Nawigacja */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            border-bottom: 1px solid #1a1a1a;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #fff, #555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cart-icon {
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Główny Kontener */
+        .product-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* Sekcja Zdjęcia */
+        .product-image-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .image-box {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        .image-box:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+        }
+
+        /* Styl zdjęcia koszulki */
+        .product-tshirt-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            mix-blend-mode: lighten; /* Sprawia, że tło zdjęcia lepiej siada w czarnym boksie */
+        }
+
+        /* Sekcja Szczegółów Produktu */
+        .product-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tag {
+            align-self: flex-start;
+            background: #222;
+            color: #888;
+            padding: 6px 12px;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #00ff66;
+            margin-bottom: 25px;
+        }
+
+        .description {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        /* Wybór Rozmiaru */
+        .size-section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 12px;
+        }
+
+        .size-btn {
+            background: #111;
+            border: 1px solid #333;
+            color: white;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .size-btn:hover {
+            border-color: #fff;
+        }
+
+        .size-btn.active {
+            background: #fff;
+            color: #000;
+            border-color: #fff;
+        }
+
+        /* Przycisk Zakupu */
+        .buy-btn {
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 18px 32px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            background: #eeeeee;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255,255,255,0.15);
+        }
+
+        .buy-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Stopka */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 12px;
+            color: #444;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                margin: 20px auto;
+            }
+            .product-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">MW label</div>
+        <div class="cart-icon">Koszyk (0)</div>
+    </header>
+
+    <main class="product-container">
+        <!-- Lewa strona: Zdjęcie -->
+        <div class="product-image-side">
+            <div class="image-box">
+                <!-- TUTAJ WSTAWIONE LOSOWE ZDJĘCIE CZARNEJ KOSZULKI -->
+                <img src="https://redro.pl/naklejka-blank-t-shirt-color-black-template-front-and-back-view-on-white,218337413" alt="Koszulka MW label" class="product-tshirt-img">
+            </div>
+        </div>
+
+        <!-- Prawa strona: Informacje i zakup -->
+        <div class="product-details">
+            <span class="tag">MW label</span>
+            <h1 class="product-title">Oversize koszulka "MW label"</h1>
+            <div class="price">159,00 PLN</div>
+            
+            <p class="description">
+                MW label noi huj
+            </p>
+
+            <!-- Rozmiary -->
+            <div class="size-section">
+                <div class="section-title">Wybierz rozmiar</div>
+                <div class="size-options">
+                    <button class="size-btn" onclick="selectSize(this)">S</button>
+                    <button class="size-btn active" onclick="selectSize(this)">M</button>
+                    <button class="size-btn" onclick="selectSize(this)">L</button>
+                    <button class="size-btn" onclick="selectSize(this)">XL</button>
+                </div>
+            </div>
+
+            <!-- Przycisk -->
+            <button class="buy-btn" onclick="addToCart()">Dodaj do koszyka</button>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 MW label wszystkie prawa zastrzeżone
+    </footer>
+
+    <script>
+        function selectSize(button) {
+            const buttons = document.querySelectorAll('.size-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+
+        let cartCount = 0;
+        function addToCart() {
+            cartCount++;
+            document.querySelector('.cart-icon').innerText = `Koszyk (${cartCount})`;
+            alert('Produkt został dodany do koszyka!');
+        }
+    </script>
+</body>
+</html>

@@ -1,75 +1,136 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MW LABEL</title>
 
-    <title>Hello World!</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <body>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #4a4a4a; 
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+            margin-bottom: 25px;
+            user-select: none;
+        }
+
     
-    <nav>
-      <a  class="menu-link" href="#Kontakt"><span>Kontakt</span></a>
-    </nav>
+        nav {
+            margin-bottom: 40px;
+        }
 
-    <br>
-    <br>
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-    <section id="Pobierz">
-      <h1>KUP PRODUKT</h1>
-      <div class="kontener">
-        <img class="Koszulki" scr="">
-        <a href="https://cooltext.com"><img src="https://images.cooltext.com/5757816.gif" width="1122" height="73" alt="KOSZULKI DOSTEPNE ZA PARE DNI DOCZEKAJCIE SIE" /></a>
-        <br>
-    </section>
-    </div>
+        nav a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 4px;
+        }
 
-    <section id="#TWÓRCY">
-        <h1>O nas</h1>
-        <div class="kontener">
-            <p>
-                <a href="https://www.youtube.com/@Marekwagina">KANAŁ MARKA</a>
-                <br>
-                <a href="https://soundcloud.com/marek-wagina">soundcloud</a>
-                <br>
-                <a href="https://www.facebook.com/profile.php?id=61551999612172&sk=friends_all&locale=pl_PL">Facebook</a>
-                <br>
-            </p>
+        nav a:hover {
+            color: #ffffff;
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.6);
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .main-content {
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 20px;
+            margin-bottom: 60px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 1), 
+                        0px 0px 30px rgba(0, 0, 0, 0.8);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            display: block;
+            height: auto;
+            filter: brightness(0.8) contrast(1.1);
+        }
+        
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100%),
+                        linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 10%, rgba(0,0,0,0) 90%, rgba(0,0,0,1) 100%);
+            pointer-events: none;
+        }
+    </style>
+
+
+
+
+
+</head>
+<body>
+
+    <header>
+        <div class="logo">MW label</div>
+        
+        <nav>
+            <ul>
+                <li><a href="https://soundcloud.com/marek-wagina">Music</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="image-container">
+            <img src="asdasdasdasdasdasdasdasd.png" alt="Marek Wagina">
         </div>
-    </section>
+    </main>
 
-    <div id="Kontakt" class="kontener">
-      <form action="" method="POST" enctpe="multipart/from-data">
-        <fieldset>
-    
-          <legend>
-            Napisz do nas
-          </legend>
-        
-          <label for="Nick">Nick z gry</label>
-    
-          <input type="text" maxlegth="67" placeholder="jaki masz nick"
-          id="imie" name="imie">
-  
-          <label for="email">E-mail</label>
-   
-          <input type="email" placeholder="twój-email@gmail.com"
-          id="imie" name="mail" required>
-
-          <textarea rows="10" placeholder="twoje pytanie......" name="uwagi"></textarea>
-     
-          <input id="btnSubmint" type="submit" value="prześlij">
-        </fieldset>
-        
-        
-      </form>
-
-
-      
-
-
-    </body>
+</head>
+</body>
 </html>
